@@ -1,0 +1,9 @@
+.inputItems {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.formContainer {
+    display: flex;
+    flex-wrap: wrap;
+}

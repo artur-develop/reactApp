@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.wrapper {
+  padding-top: 5rem;
+  margin: auto;
+  width: 600px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.rm {
+  background: coral;
+  border-radius: 40%;
+  color: #fff;
+  border: none;
+}
+
+.cardButtons {
+  align-self: self-end;
+  float: right;
+  justify-content: flex-end;
+}
+
+.rm:hover {
+  cursor: pointer;
+}
+
+.addButton {
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+.adminModal {
+  background-color: gold;
+}
+.commonModal {
+  background-color: turquoise;
+}
