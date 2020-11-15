@@ -11,11 +11,11 @@ const styles = {
     }
 }
 
-function TodoList(props) {
+function TodoList({ todos, removeTodo, handleModalType }) {
     return (
         <ul style={styles.ul}>
-            { props.todos.map((todo,index) => {
-                return <TodoItem todo={todo} key={todo.id} index={index}/>
+            { todos.map((todo,index) => {
+                return <TodoItem removeTodo={removeTodo} handleModalType={handleModalType} todo={todo} key={todo.id} index={index}/>
             }) }
         </ul>
     )
