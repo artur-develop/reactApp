@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import EditImage from "../../Components/EditImage";
+import ModalContent from "../ModalContent/ModalContent";
 
 function EditTodo({editHandle, userInfo}) {
     const [name, setName] = useState( userInfo !== null ? userInfo.name : '')
@@ -16,18 +16,20 @@ function EditTodo({editHandle, userInfo}) {
         }
     }
 
+    const params = {
+        setImage: setImage,
+        setAge: setAge,
+        setRole: setRole,
+        setName: setName,
+        role: role,
+        name: name,
+        age: age,
+    }
+
     return (
         <form className='formContainer' style={{marginBottom : '1rem' }} onSubmit={submitHandler}>
             <h1>User edit</h1>
-            <input className='inputItems' placeholder={name} value={name} onChange={event => setName(event.target.value)}/>
-            <input className='inputItems' placeholder={age} value={age} type='number' onChange={event => setAge(event.target.value)}/>
-            <label className='modalContent'>Choose role:{'\u00A0'}
-                <select value={role} onChange={event => setRole(event.target.value)} className='modalContent' >
-                    <option value="common">Common user</option>
-                    <option value="admin">Admin</option>
-                </select>
-            </label>
-            <EditImage handleImage={setImage}/><br/>
+            <ModalContent {...params}/>
             <button type='submit'>Edit user</button>
         </form>
     )
