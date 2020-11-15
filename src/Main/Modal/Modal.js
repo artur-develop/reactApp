@@ -2,6 +2,7 @@ import React from 'react'
 import './Modal.css'
 import AddTodo from "./AddUser/AddTodo";
 import EditTodo from "./EditUser/EditTodo";
+import {ADD_MODAL} from "./ModalType";
 
 
 function Modal({ addTodo, handleCloseModal, showModal, editTodo, modalType, userInfo }) {
@@ -11,7 +12,7 @@ function Modal({ addTodo, handleCloseModal, showModal, editTodo, modalType, user
             {showModal &&
             (<div className='modal'>
                 <div className='modal-body'>
-                    {modalType === 'add' ? <AddTodo addHandle={addTodo}/> : <EditTodo editHandle={editTodo} userInfo={userInfo}/>}
+                        {modalType === ADD_MODAL ? <AddTodo addHandle={addTodo}/> : <EditTodo editHandle={editTodo} userInfo={userInfo}/>}
                     <div className='acceptButtonContainer'>
                         <button type='submit' className='acceptButton' onClick={() => handleCloseModal(false)}>Close</button>
                     </div>
