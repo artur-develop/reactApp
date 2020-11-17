@@ -1,12 +1,10 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import ModalContent from "../ModalContent/ModalContent";
-import useInputComponent from "../useInputComponent";
 
 function EditTodo({editHandle, userInfo}) {
-    const {value:age, renderInput:renderAge} = useInputComponent('Enter Age',userInfo?.age)
-    const {value:name, renderInput:renderName} = useInputComponent('Enter Name',userInfo?.name)
-
+    const [name, setName] = useState( userInfo !== null ? userInfo.name : '')
+    const [age, setAge] = useState(userInfo !== null ? userInfo.age : '')
     const [role, setRole] = useState(userInfo !== null ? userInfo.role : 'common')
     const [image, setImage] = useState(userInfo !== null ? userInfo.image : '')
 
@@ -14,21 +12,18 @@ function EditTodo({editHandle, userInfo}) {
         event.preventDefault()
 
         if (name.trim() && age.trim() && role.trim()) {
-            editHandle(
-                userInfo.id,
-                name,
-                age,
-                role,
-                image);
+            editHandle(userInfo.id, name, age, role, image);
         }
     }
 
     const params = {
         setImage: setImage,
+        setAge: setAge,
         setRole: setRole,
+        setName: setName,
         role: role,
-        renderName: renderName,
-        renderAge: renderAge,
+        name: name,
+        age: age,
     }
 
     return (
