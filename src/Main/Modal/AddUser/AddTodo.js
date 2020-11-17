@@ -1,29 +1,34 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import ModalContent from "../ModalContent/ModalContent";
+import useInputComponent from "../useInputComponent";
 
 function AddTodo({addHandle}) {
-    const [name, setName] = useState('')
-    const [age, setAge] = useState('')
+    const {value:age, renderInput:renderAge} = useInputComponent('Enter Age')
+    const {value:name, renderInput:renderName} = useInputComponent('Enter Name')
+
     const [role, setRole] = useState('common')
     const [image, setImage] = useState('')
 
     function submitHandler(event) {
         event.preventDefault()
 
-        if (name.trim() && age.trim() && role.trim()) {
-            addHandle(name, age, role, image);
+        if (age.trim() && name.trim() && role.trim()) {
+            addHandle (
+                name,
+                age,
+                role,
+                image
+            );
         }
     }
 
     const params = {
         setImage: setImage,
-        setAge: setAge,
         setRole: setRole,
-        setName: setName,
         role: role,
-        name: name,
-        age: age,
+        renderName: renderName,
+        renderAge: renderAge
     }
 
     return (

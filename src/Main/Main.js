@@ -23,10 +23,10 @@ function Main() {
         const users = todos;
         const index = users.findIndex(todo => todo.id === id)
         users.splice(index,1, { id: id,
-            name: name,
-            age: age,
-            role: role,
-            image: image});
+            name,
+            age,
+            role,
+            image});
         console.log(todos);
     }
 
@@ -39,10 +39,10 @@ function Main() {
         const users = todos;
         const userInfo = {
             id: uuid(),
-            name: name,
-            age: age,
-            role: role,
-            image: image,
+            name,
+            age,
+            role,
+            image,
         }
 
         setTodos(users.concat([userInfo]))
