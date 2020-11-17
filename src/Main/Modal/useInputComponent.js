@@ -1,7 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
-function InputComponent(placeHolder) {
+function useInputComponent(placeHolder, fieldValue) {
     const [value, setValue] = useState('')
+
+    useEffect(() => {
+        if (fieldValue) {
+            setValue(fieldValue)
+        }
+    }, [fieldValue]);
 
     function renderInput() {
         return (<input className='inputItems' placeholder={placeHolder} value={value} onChange={event => setValue(event.target.value)}/>)
@@ -13,4 +19,4 @@ function InputComponent(placeHolder) {
     }
 }
 
-export default InputComponent
+export default useInputComponent

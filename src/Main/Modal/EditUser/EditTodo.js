@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import ModalContent from "../ModalContent/ModalContent";
-import InputComponent from "../InputComponent";
+import useInputComponent from "../useInputComponent";
 
 function EditTodo({editHandle, userInfo}) {
-    const {value:age, renderInput:renderAge} = InputComponent(userInfo !== null ? userInfo.age : '')
-    const {value:name, renderInput:renderName} = InputComponent(userInfo !== null ? userInfo.name : '')
+    const {value:age, renderInput:renderAge} = useInputComponent('Enter Age',userInfo?.age)
+    const {value:name, renderInput:renderName} = useInputComponent('Enter Name',userInfo?.name)
 
     const [role, setRole] = useState(userInfo !== null ? userInfo.role : 'common')
     const [image, setImage] = useState(userInfo !== null ? userInfo.image : '')
